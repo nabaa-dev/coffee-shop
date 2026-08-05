@@ -1,0 +1,417 @@
+/* ═══════════════════════════════════════════════════════════
+   Featured.css — Luxury Featured Coffee Section
+   Palette: #6F4E37 | #C8A27A | #F5F5DC | #ffffff
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Design Tokens ── */
+:root {
+  --feat-brown: #6f4e37;
+  --feat-brown-dark: #543b29;
+  --feat-brown-light: #8b6347;
+  --feat-beige: #c8a27a;
+  --feat-beige-light: #dfc4a0;
+  --feat-off-white: #f5f5dc;
+  --feat-white: #ffffff;
+  --feat-text-dark: #2c1a0e;
+  --feat-text-muted: #7a6555;
+  --feat-shadow-sm: 0 2px 14px rgba(111, 78, 55, 0.09);
+  --feat-shadow-md: 0 8px 36px rgba(111, 78, 55, 0.16);
+  --feat-shadow-lg: 0 22px 64px rgba(111, 78, 55, 0.25);
+  --feat-radius-sm: 14px;
+  --feat-radius-md: 22px;
+  --feat-radius-pill: 100px;
+  --feat-transition: 0.38s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ══════════════════════════════════════════════════════════
+   1. SECTION WRAPPER
+══════════════════════════════════════════════════════════ */
+.featured-section {
+  background: linear-gradient(
+    180deg,
+    var(--feat-white) 0%,
+    #fdfcf8 55%,
+    var(--feat-off-white) 100%
+  );
+  padding: 0 24px 96px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle ambient blobs */
+.featured-section::before,
+.featured-section::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+.featured-section::before {
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle, rgba(200, 162, 122, 0.1) 0%, transparent 68%);
+  top: 80px;
+  right: -160px;
+}
+.featured-section::after {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(111, 78, 55, 0.07) 0%, transparent 65%);
+  bottom: 0;
+  left: -120px;
+}
+
+/* ══════════════════════════════════════════════════════════
+   2. SVG TOP DIVIDER
+══════════════════════════════════════════════════════════ */
+.featured-divider {
+  width: 100%;
+  line-height: 0;
+  margin-bottom: -2px;
+}
+.featured-divider svg {
+  display: block;
+  width: 100%;
+  height: 60px;
+}
+
+/* ══════════════════════════════════════════════════════════
+   3. SECTION HEADER
+══════════════════════════════════════════════════════════ */
+.featured-header {
+  text-align: center;
+  max-width: 660px;
+  margin: 0 auto 60px;
+  position: relative;
+  z-index: 1;
+  padding-top: 72px;
+}
+
+/* Arabic eyebrow label */
+.featured-eyebrow {
+  display: inline-block;
+  font-family: 'Georgia', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--feat-beige);
+  letter-spacing: 0.06em;
+  margin-bottom: 14px;
+  position: relative;
+}
+.featured-eyebrow::before,
+.featured-eyebrow::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 40px;
+  height: 1px;
+  background: var(--feat-beige-light);
+  opacity: 0.7;
+}
+.featured-eyebrow::before { right: calc(100% + 12px); }
+.featured-eyebrow::after  { left:  calc(100% + 12px); }
+
+/* Main title */
+.featured-title {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  font-weight: 700;
+  color: var(--feat-brown);
+  line-height: 1.18;
+  margin: 0 0 18px;
+  letter-spacing: -0.015em;
+}
+
+/* Subtitle */
+.featured-subtitle {
+  font-size: 1rem;
+  color: var(--feat-text-muted);
+  line-height: 1.78;
+  margin: 0 auto;
+  max-width: 540px;
+}
+
+/* ══════════════════════════════════════════════════════════
+   4. CARDS GRID
+══════════════════════════════════════════════════════════ */
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 1220px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* ══════════════════════════════════════════════════════════
+   5. INDIVIDUAL CARD  +  SCROLL FADE-IN ANIMATION
+══════════════════════════════════════════════════════════ */
+
+/* Keyframes — fade up on load */
+@keyframes feat-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.featured-card {
+  background: var(--feat-white);
+  border-radius: var(--feat-radius-md);
+  overflow: hidden;
+  box-shadow: var(--feat-shadow-md);
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(200, 162, 122, 0.18);
+  transition:
+    transform var(--feat-transition),
+    box-shadow var(--feat-transition);
+
+  /* CSS-only entrance animation */
+  animation: feat-fade-up 0.65s ease both;
+}
+
+.featured-card:hover {
+  transform: translateY(-12px) scale(1.018);
+  box-shadow: var(--feat-shadow-lg);
+}
+
+/* ── Card Image ── */
+.featured-card-image-wrapper {
+  position: relative;
+  overflow: hidden;
+  height: 230px;
+}
+
+.featured-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.featured-card:hover .featured-card-image {
+  transform: scale(1.12);
+}
+
+/* Dark gradient overlay on image */
+.featured-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(111, 78, 55, 0.45) 0%,
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity var(--feat-transition);
+}
+
+.featured-card:hover .featured-card-overlay {
+  opacity: 1;
+}
+
+/* Price badge on image */
+.featured-card-price-badge {
+  position: absolute;
+  bottom: 14px;
+  right: 14px;
+  background: linear-gradient(135deg, var(--feat-brown), var(--feat-beige));
+  color: var(--feat-white);
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 6px 16px;
+  border-radius: var(--feat-radius-pill);
+  box-shadow: 0 4px 14px rgba(111, 78, 55, 0.35);
+  letter-spacing: 0.04em;
+  transform: translateY(4px);
+  transition: transform var(--feat-transition);
+}
+
+.featured-card:hover .featured-card-price-badge {
+  transform: translateY(0);
+}
+
+/* ── Card Body ── */
+.featured-card-body {
+  padding: 24px 22px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.featured-card-name {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: var(--feat-text-dark);
+  margin: 0;
+  line-height: 1.3;
+  transition: color var(--feat-transition);
+}
+
+.featured-card:hover .featured-card-name {
+  color: var(--feat-brown);
+}
+
+/* ── Star Rating ── */
+.featured-card-stars {
+  display: flex;
+  gap: 3px;
+}
+
+.fstar {
+  font-size: 0.92rem;
+}
+
+.fstar--filled {
+  color: #f5a623;
+  text-shadow: 0 0 6px rgba(245, 166, 35, 0.5);
+}
+
+.fstar--empty {
+  color: #ddd;
+}
+
+/* ── Description ── */
+.featured-card-description {
+  font-size: 0.875rem;
+  color: var(--feat-text-muted);
+  line-height: 1.68;
+  margin: 0;
+  flex: 1;
+}
+
+/* ── Order Button ── */
+.featured-card-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 12px 18px;
+  border-radius: var(--feat-radius-sm);
+  border: 2px solid var(--feat-brown);
+  background: transparent;
+  color: var(--feat-brown);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 4px;
+  overflow: hidden;
+  position: relative;
+  transition:
+    color var(--feat-transition),
+    border-color var(--feat-transition),
+    transform var(--feat-transition),
+    box-shadow var(--feat-transition);
+}
+
+/* Animated fill on hover */
+.featured-card-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--feat-brown), var(--feat-beige));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.featured-card-btn span {
+  position: relative;
+  z-index: 1;
+}
+
+.featured-card-btn:hover {
+  color: var(--feat-white);
+  border-color: transparent;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(111, 78, 55, 0.32);
+}
+
+.featured-card-btn:hover::before {
+  transform: scaleX(1);
+}
+
+.featured-card-btn-icon {
+  font-size: 1.05rem;
+}
+
+/* ══════════════════════════════════════════════════════════
+   6. BOTTOM ACCENT
+══════════════════════════════════════════════════════════ */
+.featured-bottom-accent {
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--feat-brown), var(--feat-beige));
+  border-radius: var(--feat-radius-pill);
+  margin: 64px auto 0;
+  opacity: 0.5;
+}
+
+/* ══════════════════════════════════════════════════════════
+   7. RESPONSIVE BREAKPOINTS
+══════════════════════════════════════════════════════════ */
+
+/* Tablet: 2 columns */
+@media (max-width: 900px) {
+  .featured-section {
+    padding: 0 20px 72px;
+  }
+
+  .featured-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+  }
+
+  .featured-header {
+    padding-top: 56px;
+    margin-bottom: 44px;
+  }
+
+  .featured-eyebrow::before,
+  .featured-eyebrow::after {
+    display: none;
+  }
+}
+
+/* Mobile: 1 column */
+@media (max-width: 560px) {
+  .featured-section {
+    padding: 0 16px 56px;
+  }
+
+  .featured-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .featured-header {
+    padding-top: 44px;
+    margin-bottom: 36px;
+  }
+
+  .featured-title {
+    font-size: 2rem;
+  }
+
+  .featured-card-image-wrapper {
+    height: 200px;
+  }
+
+  .featured-bottom-accent {
+    margin-top: 48px;
+  }
+}

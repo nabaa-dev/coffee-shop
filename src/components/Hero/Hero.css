@@ -1,0 +1,242 @@
+/* ==========================================================================
+   Hero Section - Flexbox Layout & Design System
+   Colors: Brown #6F4E37, Beige #C8A27A, Ivory #F5F5DC
+   ========================================================================== */
+
+/* Main Hero Flexbox Container */
+.hero-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  direction: ltr; /* Ensures text is on the Left side, image on the Right side */
+  background: linear-gradient(135deg, #F5F5DC 0%, #FAF7F2 50%, #F3EBDD 100%);
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(111, 78, 55, 0.08);
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* --------------------------------------------------------------------------
+   Left Side: Text Section
+   -------------------------------------------------------------------------- */
+.hero-text-side {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* Tagline Badge */
+.hero-tagline {
+  display: inline-block;
+  padding: 0.45rem 1.1rem;
+  background-color: rgba(200, 162, 122, 0.2);
+  color: #6F4E37;
+  border: 1px solid #C8A27A;
+  border-radius: 20px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+}
+
+/* Main Heading */
+.hero-heading {
+  font-size: 3.2rem;
+  font-weight: 800;
+  color: #1F130E;
+  line-height: 1.2;
+  margin-bottom: 1.2rem;
+  letter-spacing: -0.5px;
+  background: linear-gradient(135deg, #1F130E 0%, #6F4E37 60%, #C8A27A 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Short Description */
+.hero-description {
+  font-size: 1.15rem;
+  color: #55443B;
+  line-height: 1.75;
+  margin-bottom: 2.2rem;
+  max-width: 520px;
+  direction: rtl; /* Description in Arabic formatted cleanly */
+  text-align: right;
+}
+
+/* Buttons Container (Flexbox) */
+.hero-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+/* Base Button Styles */
+.btn {
+  padding: 0.9rem 2.2rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: inherit;
+  outline: none;
+}
+
+/* Primary Button "اطلب الآن" */
+.btn-primary {
+  background-color: #6F4E37;
+  color: #F5F5DC;
+  border: 2px solid #6F4E37;
+  box-shadow: 0 6px 20px rgba(111, 78, 55, 0.3);
+}
+
+.btn-primary:hover {
+  background-color: #382219;
+  border-color: #382219;
+  color: #FFFFFF;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(56, 34, 25, 0.4);
+}
+
+.btn-primary:active {
+  transform: translateY(-1px);
+}
+
+/* Secondary Button "شاهد القائمة" */
+.btn-secondary {
+  background-color: #F5F5DC;
+  color: #6F4E37;
+  border: 2px solid #C8A27A;
+  box-shadow: 0 4px 15px rgba(200, 162, 122, 0.15);
+}
+
+.btn-secondary:hover {
+  background-color: #C8A27A;
+  color: #1F130E;
+  border-color: #C8A27A;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(200, 162, 122, 0.35);
+}
+
+.btn-secondary:active {
+  transform: translateY(-1px);
+}
+
+/* --------------------------------------------------------------------------
+   Right Side: Image Section
+   -------------------------------------------------------------------------- */
+.hero-image-side {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeInRight 0.9s ease-out forwards;
+}
+
+.hero-image-card {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(31, 19, 14, 0.2);
+  border: 4px solid #C8A27A;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.hero-image-card:hover {
+  transform: scale(1.02) translateY(-5px);
+  box-shadow: 0 25px 50px rgba(31, 19, 14, 0.28);
+}
+
+.hero-coffee-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* --------------------------------------------------------------------------
+   Keyframe Entry Animations
+   -------------------------------------------------------------------------- */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Media Queries (Laptop & Mobile)
+   -------------------------------------------------------------------------- */
+@media (max-width: 992px) {
+  .hero-heading {
+    font-size: 2.6rem;
+  }
+  .hero-container {
+    padding: 3rem 1.5rem;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-container {
+    flex-direction: column-reverse; /* Stacks image on top, text below on mobile */
+    text-align: center;
+    padding: 2.5rem 1.25rem;
+    gap: 2.5rem;
+  }
+
+  .hero-text-side {
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-description {
+    text-align: center;
+  }
+
+  .hero-heading {
+    font-size: 2.1rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.8rem;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .hero-image-card {
+    max-width: 320px;
+  }
+}

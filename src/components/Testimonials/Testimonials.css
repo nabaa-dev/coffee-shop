@@ -1,0 +1,445 @@
+/* ═══════════════════════════════════════════════════════════
+   Testimonials.css — Customer Reviews Section
+   Palette: #6F4E37 | #C8A27A | #F5F5DC | #ffffff
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Design Tokens ── */
+:root {
+  --testi-brown: #6f4e37;
+  --testi-brown-dark: #543b29;
+  --testi-brown-light: #8b6347;
+  --testi-beige: #c8a27a;
+  --testi-beige-light: #dfc4a0;
+  --testi-off-white: #f5f5dc;
+  --testi-off-white-alt: #faf8f2;
+  --testi-white: #ffffff;
+  --testi-text-dark: #2c1a0e;
+  --testi-text-muted: #7a6555;
+  --testi-gold: #f5a623;
+  --testi-shadow-sm: 0 2px 14px rgba(111, 78, 55, 0.08);
+  --testi-shadow-md: 0 8px 36px rgba(111, 78, 55, 0.14);
+  --testi-shadow-lg: 0 22px 64px rgba(111, 78, 55, 0.24);
+  --testi-radius-sm: 14px;
+  --testi-radius-md: 24px;
+  --testi-radius-full: 50%;
+  --testi-radius-pill: 100px;
+  --testi-transition: 0.36s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ══════════════════════════════════════════════════════════
+   1. SECTION WRAPPER
+══════════════════════════════════════════════════════════ */
+.testi-section {
+  background: linear-gradient(
+    160deg,
+    var(--testi-white) 0%,
+    var(--testi-off-white-alt) 45%,
+    var(--testi-off-white) 100%
+  );
+  padding: 0 24px 96px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ambient blobs */
+.testi-section::before,
+.testi-section::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.testi-section::before {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(200, 162, 122, 0.12) 0%, transparent 66%);
+  top: 80px;
+  right: -160px;
+}
+
+.testi-section::after {
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle, rgba(111, 78, 55, 0.07) 0%, transparent 65%);
+  bottom: 120px;
+  left: -100px;
+}
+
+/* ══════════════════════════════════════════════════════════
+   2. SVG WAVE TOP DIVIDER
+══════════════════════════════════════════════════════════ */
+.testi-wave {
+  width: 100%;
+  line-height: 0;
+  margin-bottom: -2px;
+}
+
+.testi-wave svg {
+  display: block;
+  width: 100%;
+  height: 60px;
+}
+
+/* ══════════════════════════════════════════════════════════
+   3. SECTION HEADER
+══════════════════════════════════════════════════════════ */
+.testi-header {
+  text-align: center;
+  max-width: 660px;
+  margin: 0 auto 56px;
+  padding-top: 60px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Badge */
+.testi-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--testi-brown), var(--testi-beige));
+  color: var(--testi-white);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 8px 22px;
+  border-radius: var(--testi-radius-pill);
+  margin-bottom: 20px;
+  box-shadow: 0 4px 18px rgba(111, 78, 55, 0.3);
+}
+
+/* Main Title */
+.testi-title {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--testi-brown);
+  line-height: 1.22;
+  margin: 0 0 16px;
+  direction: rtl;
+}
+
+/* Subtitle */
+.testi-subtitle {
+  font-size: 0.97rem;
+  color: var(--testi-text-muted);
+  line-height: 1.8;
+  margin: 0 auto;
+  max-width: 540px;
+  direction: rtl;
+}
+
+/* ══════════════════════════════════════════════════════════
+   4. REVIEWS GRID
+══════════════════════════════════════════════════════════ */
+.testi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  max-width: 1200px;
+  margin: 0 auto 64px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ══════════════════════════════════════════════════════════
+   5. REVIEW CARD  +  FADE-UP ANIMATION
+══════════════════════════════════════════════════════════ */
+
+@keyframes testi-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(38px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.testi-card {
+  background: var(--testi-white);
+  border-radius: var(--testi-radius-md);
+  padding: 36px 28px 30px;
+  box-shadow: var(--testi-shadow-md);
+  border: 1px solid rgba(200, 162, 122, 0.16);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  overflow: hidden;
+
+  /* Entrance animation */
+  animation: testi-fade-up 0.64s ease both;
+
+  /* Hover transition */
+  transition:
+    transform var(--testi-transition),
+    box-shadow var(--testi-transition),
+    border-color var(--testi-transition);
+}
+
+.testi-card:hover {
+  transform: translateY(-12px) scale(1.022);
+  box-shadow: var(--testi-shadow-lg);
+  border-color: rgba(200, 162, 122, 0.4);
+}
+
+/* Decorative top accent line on card */
+.testi-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--testi-brown), var(--testi-beige));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.45s ease;
+  border-radius: var(--testi-radius-md) var(--testi-radius-md) 0 0;
+}
+
+.testi-card:hover::before {
+  transform: scaleX(1);
+}
+
+/* ── Large Decorative Quote Mark ── */
+.testi-quote {
+  font-family: 'Georgia', serif;
+  font-size: 5rem;
+  line-height: 0.6;
+  color: var(--testi-beige-light);
+  display: block;
+  margin-bottom: -8px;
+  pointer-events: none;
+  user-select: none;
+  transition: color var(--testi-transition);
+}
+
+.testi-card:hover .testi-quote {
+  color: var(--testi-beige);
+}
+
+/* ── Review Text ── */
+.testi-review {
+  font-size: 0.9rem;
+  color: var(--testi-text-muted);
+  line-height: 1.75;
+  margin: 0;
+  flex: 1;
+  font-style: italic;
+}
+
+/* ── Stars ── */
+.testi-stars {
+  display: flex;
+  gap: 3px;
+}
+
+.tstar {
+  font-size: 1rem;
+  transition: transform 0.25s ease, color 0.3s ease;
+}
+
+.tstar--on {
+  color: var(--testi-gold);
+  text-shadow: 0 0 6px rgba(245, 166, 35, 0.45);
+}
+
+.tstar--off {
+  color: #e0d8d0;
+}
+
+.testi-card:hover .tstar--on {
+  color: #ffba3a;
+  transform: scale(1.2);
+}
+
+/* ── Author Row ── */
+.testi-author {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 4px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(200, 162, 122, 0.2);
+}
+
+/* ── Avatar ── */
+.testi-avatar-wrapper {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--testi-radius-full);
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 2px solid var(--testi-beige-light);
+  box-shadow: 0 3px 12px rgba(111, 78, 55, 0.18);
+  transition: transform var(--testi-transition), border-color var(--testi-transition);
+}
+
+.testi-card:hover .testi-avatar-wrapper {
+  transform: scale(1.1);
+  border-color: var(--testi-beige);
+}
+
+.testi-avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.testi-card:hover .testi-avatar {
+  transform: scale(1.1);
+}
+
+/* ── Author Info ── */
+.testi-author-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.testi-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--testi-text-dark);
+  line-height: 1.2;
+  transition: color var(--testi-transition);
+}
+
+.testi-card:hover .testi-name {
+  color: var(--testi-brown);
+}
+
+.testi-city {
+  font-size: 0.8rem;
+  color: var(--testi-text-muted);
+  letter-spacing: 0.03em;
+}
+
+/* ══════════════════════════════════════════════════════════
+   6. SOCIAL PROOF BANNER
+══════════════════════════════════════════════════════════ */
+.testi-proof {
+  max-width: 560px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.testi-proof-inner {
+  background: linear-gradient(
+    135deg,
+    var(--testi-brown) 0%,
+    var(--testi-brown-light) 60%,
+    var(--testi-beige) 100%
+  );
+  border-radius: var(--testi-radius-md);
+  padding: 36px 40px;
+  text-align: center;
+  box-shadow: 0 16px 56px rgba(111, 78, 55, 0.32);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Soft inner glow */
+.testi-proof-inner::before {
+  content: '';
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 50%;
+  top: -80px;
+  right: -80px;
+  pointer-events: none;
+}
+
+.testi-proof-stars {
+  font-size: 1.8rem;
+  color: var(--testi-gold);
+  letter-spacing: 4px;
+  margin-bottom: 12px;
+  text-shadow: 0 0 12px rgba(245, 166, 35, 0.55);
+
+  animation: proof-pulse 2.8s ease-in-out infinite;
+}
+
+@keyframes proof-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.85; transform: scale(1.04); }
+}
+
+.testi-proof-text {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.92);
+  line-height: 1.65;
+  margin: 0;
+  direction: rtl;
+}
+
+.testi-proof-text strong {
+  color: var(--testi-white);
+  font-weight: 700;
+}
+
+/* ══════════════════════════════════════════════════════════
+   7. RESPONSIVE BREAKPOINTS
+══════════════════════════════════════════════════════════ */
+
+/* Tablet — 2 columns */
+@media (max-width: 960px) {
+  .testi-section {
+    padding: 0 20px 72px;
+  }
+
+  .testi-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+  }
+
+  .testi-header {
+    padding-top: 52px;
+    margin-bottom: 44px;
+  }
+}
+
+/* Mobile — 1 column */
+@media (max-width: 580px) {
+  .testi-section {
+    padding: 0 16px 56px;
+  }
+
+  .testi-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .testi-header {
+    padding-top: 40px;
+    margin-bottom: 36px;
+  }
+
+  .testi-title {
+    font-size: 1.75rem;
+  }
+
+  .testi-card {
+    padding: 28px 20px 24px;
+  }
+
+  .testi-proof-inner {
+    padding: 28px 24px;
+  }
+
+  .testi-proof-text {
+    font-size: 0.92rem;
+  }
+}

@@ -1,0 +1,335 @@
+/* ═══════════════════════════════════════════════════════════
+   WhyChooseUs.css — Why Choose Us Section
+   Palette: #6F4E37 | #C8A27A | #F5F5DC | #ffffff
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Design Tokens ── */
+:root {
+  --why-brown: #6f4e37;
+  --why-brown-dark: #543b29;
+  --why-brown-light: #8b6347;
+  --why-beige: #c8a27a;
+  --why-beige-light: #dfc4a0;
+  --why-off-white: #f5f5dc;
+  --why-off-white-alt: #faf8f2;
+  --why-white: #ffffff;
+  --why-text-dark: #2c1a0e;
+  --why-text-muted: #7a6555;
+  --why-shadow-sm: 0 2px 14px rgba(111, 78, 55, 0.08);
+  --why-shadow-md: 0 8px 36px rgba(111, 78, 55, 0.14);
+  --why-shadow-lg: 0 20px 60px rgba(111, 78, 55, 0.22);
+  --why-radius-sm: 14px;
+  --why-radius-md: 24px;
+  --why-radius-lg: 36px;
+  --why-radius-pill: 100px;
+  --why-transition: 0.36s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ══════════════════════════════════════════════════════════
+   1. SECTION WRAPPER
+══════════════════════════════════════════════════════════ */
+.why-section {
+  background: linear-gradient(
+    160deg,
+    var(--why-off-white) 0%,
+    var(--why-off-white-alt) 50%,
+    var(--why-off-white) 100%
+  );
+  padding: 0 24px 96px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ambient background blobs */
+.why-section::before,
+.why-section::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.why-section::before {
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, rgba(200, 162, 122, 0.13) 0%, transparent 65%);
+  top: 60px;
+  left: -160px;
+}
+
+.why-section::after {
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, rgba(111, 78, 55, 0.07) 0%, transparent 65%);
+  bottom: 40px;
+  right: -140px;
+}
+
+/* ══════════════════════════════════════════════════════════
+   2. SVG WAVE TOP DIVIDER
+══════════════════════════════════════════════════════════ */
+.why-wave-top {
+  width: 100%;
+  line-height: 0;
+  margin-bottom: -2px;
+}
+
+.why-wave-top svg {
+  display: block;
+  width: 100%;
+  height: 56px;
+}
+
+/* ══════════════════════════════════════════════════════════
+   3. SECTION HEADER
+══════════════════════════════════════════════════════════ */
+.why-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 60px;
+  padding-top: 64px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Badge */
+.why-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--why-brown), var(--why-beige));
+  color: var(--why-white);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 8px 22px;
+  border-radius: var(--why-radius-pill);
+  margin-bottom: 22px;
+  box-shadow: 0 4px 18px rgba(111, 78, 55, 0.3);
+}
+
+/* Main Title */
+.why-title {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--why-brown);
+  line-height: 1.25;
+  margin: 0 0 18px;
+  letter-spacing: -0.01em;
+  direction: rtl;
+}
+
+/* Subtitle */
+.why-subtitle {
+  font-size: 0.98rem;
+  color: var(--why-text-muted);
+  line-height: 1.8;
+  margin: 0 auto;
+  max-width: 560px;
+  direction: rtl;
+}
+
+/* ══════════════════════════════════════════════════════════
+   4. FEATURES GRID
+══════════════════════════════════════════════════════════ */
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  max-width: 1180px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* ══════════════════════════════════════════════════════════
+   5. FEATURE CARD  +  FADE-UP ANIMATION
+══════════════════════════════════════════════════════════ */
+
+@keyframes why-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(36px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.why-card {
+  background: var(--why-white);
+  border-radius: var(--why-radius-md);
+  padding: 38px 30px 36px;
+  box-shadow: var(--why-shadow-md);
+  border: 1px solid rgba(200, 162, 122, 0.16);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 14px;
+  cursor: default;
+
+  /* Entrance animation */
+  animation: why-fade-up 0.62s ease both;
+
+  /* Hover transition */
+  transition:
+    transform var(--why-transition),
+    box-shadow var(--why-transition),
+    border-color var(--why-transition);
+}
+
+.why-card:hover {
+  transform: translateY(-12px) scale(1.025);
+  box-shadow: var(--why-shadow-lg);
+  border-color: rgba(200, 162, 122, 0.38);
+}
+
+/* ── Icon Wrapper ── */
+.why-card-icon-wrapper {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background: linear-gradient(
+    145deg,
+    var(--why-off-white) 0%,
+    var(--why-beige-light) 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 4px 16px rgba(200, 162, 122, 0.3),
+    inset 0 1px 2px rgba(255, 255, 255, 0.9);
+  transition:
+    background var(--why-transition),
+    box-shadow var(--why-transition),
+    transform var(--why-transition);
+  flex-shrink: 0;
+}
+
+.why-card:hover .why-card-icon-wrapper {
+  background: linear-gradient(145deg, var(--why-beige) 0%, var(--why-brown) 100%);
+  box-shadow: 0 8px 28px rgba(111, 78, 55, 0.35);
+  transform: scale(1.1) rotate(-4deg);
+}
+
+/* ── Icon ── */
+.why-card-icon {
+  font-size: 2rem;
+  line-height: 1;
+  transition: transform var(--why-transition), filter var(--why-transition);
+  display: block;
+}
+
+.why-card:hover .why-card-icon {
+  transform: scale(1.15);
+  filter: brightness(1.15) saturate(1.2);
+}
+
+/* ── Card Title ── */
+.why-card-title {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--why-text-dark);
+  margin: 0;
+  line-height: 1.3;
+  transition: color var(--why-transition);
+}
+
+.why-card:hover .why-card-title {
+  color: var(--why-brown);
+}
+
+/* ── Decorative divider under title ── */
+.why-card-title::after {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--why-beige), var(--why-brown));
+  border-radius: var(--why-radius-pill);
+  margin: 10px auto 0;
+  transition: width var(--why-transition);
+}
+
+.why-card:hover .why-card-title::after {
+  width: 56px;
+}
+
+/* ── Card Description ── */
+.why-card-description {
+  font-size: 0.875rem;
+  color: var(--why-text-muted);
+  line-height: 1.72;
+  margin: 0;
+  direction: rtl;
+}
+
+/* ══════════════════════════════════════════════════════════
+   6. BOTTOM DIVIDER
+══════════════════════════════════════════════════════════ */
+.why-divider {
+  width: 64px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--why-brown), var(--why-beige));
+  border-radius: var(--why-radius-pill);
+  margin: 64px auto 0;
+  opacity: 0.45;
+}
+
+/* ══════════════════════════════════════════════════════════
+   7. RESPONSIVE BREAKPOINTS
+══════════════════════════════════════════════════════════ */
+
+/* Tablet — 2 columns */
+@media (max-width: 900px) {
+  .why-section {
+    padding: 0 20px 72px;
+  }
+
+  .why-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+  }
+
+  .why-header {
+    padding-top: 52px;
+    margin-bottom: 44px;
+  }
+}
+
+/* Mobile — 1 column */
+@media (max-width: 560px) {
+  .why-section {
+    padding: 0 16px 56px;
+  }
+
+  .why-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .why-header {
+    padding-top: 40px;
+    margin-bottom: 36px;
+  }
+
+  .why-title {
+    font-size: 1.75rem;
+  }
+
+  .why-card {
+    padding: 30px 22px 28px;
+  }
+
+  .why-divider {
+    margin-top: 48px;
+  }
+}

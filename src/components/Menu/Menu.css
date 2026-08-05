@@ -1,0 +1,554 @@
+/* ═══════════════════════════════════════════════════
+   Menu.css — Luxury Coffee Shop Menu Section
+   Color Palette:
+     Brown   : #6F4E37
+     Beige   : #C8A27A
+     Off-White: #F5F5DC
+     White   : #ffffff
+   ═══════════════════════════════════════════════════ */
+
+/* ── Design Tokens ── */
+:root {
+  --menu-brown: #6f4e37;
+  --menu-brown-dark: #543b29;
+  --menu-brown-light: #8b6347;
+  --menu-beige: #c8a27a;
+  --menu-beige-light: #dfc4a0;
+  --menu-off-white: #f5f5dc;
+  --menu-off-white-alt: #faf8f2;
+  --menu-white: #ffffff;
+  --menu-text-dark: #2c1a0e;
+  --menu-text-muted: #7a6555;
+  --menu-shadow-sm: 0 2px 12px rgba(111, 78, 55, 0.08);
+  --menu-shadow-md: 0 8px 32px rgba(111, 78, 55, 0.14);
+  --menu-shadow-lg: 0 20px 60px rgba(111, 78, 55, 0.22);
+  --menu-radius-sm: 12px;
+  --menu-radius-md: 20px;
+  --menu-radius-lg: 32px;
+  --menu-radius-pill: 100px;
+  --menu-transition: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ══════════════════════════════════════════════════════
+   1. SECTION WRAPPER
+══════════════════════════════════════════════════════ */
+.menu-section {
+  background: linear-gradient(180deg,
+      var(--menu-off-white-alt) 0%,
+      var(--menu-off-white) 50%,
+      var(--menu-off-white-alt) 100%);
+  padding: 100px 24px 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle decorative background circles */
+.menu-section::before,
+.menu-section::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.menu-section::before {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(200, 162, 122, 0.12) 0%, transparent 70%);
+  top: -200px;
+  left: -200px;
+}
+
+.menu-section::after {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(111, 78, 55, 0.08) 0%, transparent 70%);
+  bottom: -150px;
+  right: -150px;
+}
+
+/* ══════════════════════════════════════════════════════
+   2. SECTION HEADER
+══════════════════════════════════════════════════════ */
+.menu-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 56px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Badge */
+.menu-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--menu-brown), var(--menu-beige));
+  color: var(--menu-white);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 8px 20px;
+  border-radius: var(--menu-radius-pill);
+  margin-bottom: 20px;
+  box-shadow: 0 4px 16px rgba(111, 78, 55, 0.28);
+}
+
+/* Main Title */
+.menu-title {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 700;
+  color: var(--menu-brown);
+  line-height: 1.22;
+  margin: 0 0 18px;
+  letter-spacing: -0.01em;
+}
+
+/* Subtitle */
+.menu-subtitle {
+  font-size: 1rem;
+  color: var(--menu-text-muted);
+  line-height: 1.75;
+  margin: 0;
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ══════════════════════════════════════════════════════
+   3. FILTER BUTTONS
+══════════════════════════════════════════════════════ */
+.menu-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 56px;
+  position: relative;
+  z-index: 1;
+}
+
+.menu-filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 26px;
+  border-radius: var(--menu-radius-pill);
+  border: 2px solid rgba(111, 78, 55, 0.2);
+  background: var(--menu-white);
+  color: var(--menu-text-muted);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--menu-transition);
+  box-shadow: var(--menu-shadow-sm);
+  position: relative;
+  overflow: hidden;
+}
+
+.menu-filter-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--menu-brown), var(--menu-beige));
+  opacity: 0;
+  transition: opacity var(--menu-transition);
+  border-radius: inherit;
+}
+
+.menu-filter-btn:hover {
+  border-color: var(--menu-beige);
+  color: var(--menu-brown);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(111, 78, 55, 0.18);
+}
+
+.menu-filter-btn--active {
+  background: linear-gradient(135deg, var(--menu-brown), var(--menu-beige));
+  border-color: transparent;
+  color: var(--menu-white);
+  box-shadow: 0 6px 24px rgba(111, 78, 55, 0.35);
+  transform: translateY(-1px);
+}
+
+.menu-filter-btn--active:hover {
+  color: var(--menu-white);
+  box-shadow: 0 8px 28px rgba(111, 78, 55, 0.45);
+  transform: translateY(-3px);
+}
+
+/* ══════════════════════════════════════════════════════
+   4. PRODUCT GRID
+══════════════════════════════════════════════════════ */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+  max-width: 1280px;
+  margin: 0 auto 72px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ══════════════════════════════════════════════════════
+   5. PRODUCT CARD
+══════════════════════════════════════════════════════ */
+.menu-card {
+  background: var(--menu-white);
+  border-radius: var(--menu-radius-md);
+  overflow: hidden;
+  box-shadow: var(--menu-shadow-md);
+  transition: transform var(--menu-transition), box-shadow var(--menu-transition);
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(200, 162, 122, 0.15);
+}
+
+.menu-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--menu-shadow-lg);
+}
+
+/* ── Card Image ── */
+.menu-card-image-wrapper {
+  position: relative;
+  overflow: hidden;
+  height: 220px;
+}
+
+.menu-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  display: block;
+}
+
+.menu-card:hover .menu-card-image {
+  transform: scale(1.1);
+}
+
+/* Category Badge on image */
+.menu-card-category-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(111, 78, 55, 0.88);
+  backdrop-filter: blur(6px);
+  color: var(--menu-white);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: var(--menu-radius-pill);
+}
+
+/* ── Card Body ── */
+.menu-card-body {
+  padding: 22px 22px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.menu-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.menu-card-name {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--menu-text-dark);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.menu-card-price {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--menu-brown);
+  white-space: nowrap;
+  background: linear-gradient(135deg, var(--menu-brown), var(--menu-beige));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Star Rating ── */
+.menu-card-stars {
+  display: flex;
+  gap: 2px;
+}
+
+.star {
+  font-size: 0.9rem;
+  transition: transform 0.2s ease;
+}
+
+.star--filled {
+  color: #f5a623;
+}
+
+.star--empty {
+  color: #ddd;
+}
+
+.menu-card:hover .star--filled {
+  animation: star-pop 0.3s ease forwards;
+}
+
+@keyframes star-pop {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.25);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* ── Card Description ── */
+.menu-card-description {
+  font-size: 0.875rem;
+  color: var(--menu-text-muted);
+  line-height: 1.65;
+  margin: 0;
+  flex: 1;
+}
+
+/* ── Order Button ── */
+.menu-card-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 12px 18px;
+  border-radius: var(--menu-radius-sm);
+  border: 2px solid var(--menu-brown);
+  background: transparent;
+  color: var(--menu-brown);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 6px;
+  transition: all var(--menu-transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.menu-card-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--menu-brown), var(--menu-beige));
+  opacity: 0;
+  transition: opacity var(--menu-transition);
+}
+
+.menu-card-btn span {
+  position: relative;
+  z-index: 1;
+}
+
+.menu-card-btn:hover {
+  color: var(--menu-white);
+  border-color: transparent;
+  box-shadow: 0 6px 20px rgba(111, 78, 55, 0.3);
+  transform: translateY(-1px);
+}
+
+.menu-card-btn:hover::before {
+  opacity: 1;
+}
+
+.menu-card-btn-icon {
+  font-size: 1rem;
+}
+
+/* ══════════════════════════════════════════════════════
+   6. CTA SECTION
+══════════════════════════════════════════════════════ */
+.menu-cta {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.menu-cta-inner {
+  background: linear-gradient(135deg, var(--menu-brown) 0%, var(--menu-brown-light) 50%, var(--menu-beige) 100%);
+  border-radius: var(--menu-radius-lg);
+  padding: 56px 48px;
+  text-align: center;
+  box-shadow: 0 24px 80px rgba(111, 78, 55, 0.35);
+  position: relative;
+  overflow: hidden;
+}
+
+.menu-cta-inner::before {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 50%;
+  top: -100px;
+  right: -100px;
+  pointer-events: none;
+}
+
+.menu-cta-inner::after {
+  content: '';
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 50%;
+  bottom: -80px;
+  left: -60px;
+  pointer-events: none;
+}
+
+.menu-cta-icon {
+  font-size: 2.8rem;
+  display: block;
+  margin-bottom: 16px;
+  animation: float-icon 3s ease-in-out infinite;
+}
+
+@keyframes float-icon {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.menu-cta-title {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight: 700;
+  color: var(--menu-white);
+  margin: 0 0 14px;
+}
+
+.menu-cta-description {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.7;
+  margin: 0 0 32px;
+  font-style: italic;
+}
+
+.menu-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 40px;
+  border-radius: var(--menu-radius-pill);
+  border: 2px solid var(--menu-white);
+  background: var(--menu-white);
+  color: var(--menu-brown);
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--menu-transition);
+  letter-spacing: 0.03em;
+  position: relative;
+  z-index: 1;
+}
+
+.menu-cta-btn:hover {
+  background: transparent;
+  color: var(--menu-white);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* ══════════════════════════════════════════════════════
+   7. RESPONSIVE BREAKPOINTS
+══════════════════════════════════════════════════════ */
+
+/* Laptop: 3 cards */
+@media (max-width: 1200px) {
+  .menu-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+}
+
+/* Tablet: 2 cards */
+@media (max-width: 860px) {
+  .menu-section {
+    padding: 72px 20px 64px;
+  }
+
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .menu-header {
+    margin-bottom: 40px;
+  }
+
+  .menu-filters {
+    gap: 10px;
+    margin-bottom: 40px;
+  }
+
+  .menu-cta-inner {
+    padding: 44px 32px;
+  }
+}
+
+/* Mobile: 1 card */
+@media (max-width: 540px) {
+  .menu-section {
+    padding: 56px 16px 52px;
+  }
+
+  .menu-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 420px;
+  }
+
+  .menu-title {
+    font-size: 1.9rem;
+  }
+
+  .menu-filter-btn {
+    padding: 9px 18px;
+    font-size: 0.85rem;
+  }
+
+  .menu-card-image-wrapper {
+    height: 200px;
+  }
+
+  .menu-cta-inner {
+    padding: 36px 24px;
+    border-radius: var(--menu-radius-md);
+  }
+
+  .menu-cta-description {
+    font-size: 0.92rem;
+  }
+}

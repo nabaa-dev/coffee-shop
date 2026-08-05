@@ -1,0 +1,342 @@
+/* =========================================
+   Footer — CSS
+   Palette: #6F4E37  #C8A27A  #F5F5DC  White
+   ========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap');
+
+/* Fade-up animation */
+@keyframes footerFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes statusPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(0.8); }
+}
+
+/* ---- Footer Wrapper ---- */
+.footer {
+  background: #2b1608;
+  position: relative;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ---- Top Decorative Wave ---- */
+.footer-wave {
+  display: block;
+  line-height: 0;
+  margin-top: -2px;
+}
+
+.footer-wave svg {
+  width: 100%;
+  height: 60px;
+  display: block;
+}
+
+/* ---- Container ---- */
+.footer-container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 64px 24px 40px;
+  animation: footerFadeUp 0.8s ease both;
+}
+
+/* ---- Grid ---- */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 56px;
+}
+
+/* ---- Column Base ---- */
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ---- Brand Column ---- */
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.footer-logo-icon {
+  font-size: 1.7rem;
+  filter: drop-shadow(0 2px 6px rgba(200, 162, 122, 0.5));
+}
+
+.footer-logo-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #C8A27A;
+  letter-spacing: 0.5px;
+}
+
+.footer-brand-desc {
+  font-size: 0.88rem;
+  color: #b8a090;
+  line-height: 1.75;
+  margin: 0 0 20px;
+  font-weight: 300;
+}
+
+.footer-brand-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(200, 162, 122, 0.12);
+  border: 1px solid rgba(200, 162, 122, 0.25);
+  color: #C8A27A;
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 50px;
+  letter-spacing: 0.5px;
+  width: fit-content;
+}
+
+/* ---- Column Title ---- */
+.footer-col-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #F5F5DC;
+  margin: 0 0 22px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  letter-spacing: 0.3px;
+}
+
+.footer-title-line {
+  display: inline-block;
+  width: 28px;
+  height: 3px;
+  background: linear-gradient(90deg, #6F4E37, #C8A27A);
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+/* ---- Quick Links ---- */
+.footer-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.footer-link-btn {
+  background: none;
+  border: none;
+  padding: 6px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #b8a090;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  cursor: pointer;
+  text-align: left;
+  transition: color 0.25s ease, gap 0.25s ease;
+  width: 100%;
+}
+
+.footer-link-btn:hover {
+  color: #C8A27A;
+  gap: 13px;
+}
+
+.link-arrow {
+  font-size: 1.1rem;
+  color: #6F4E37;
+  transition: color 0.25s ease;
+  line-height: 1;
+}
+
+.footer-link-btn:hover .link-arrow {
+  color: #C8A27A;
+}
+
+/* ---- Working Hours ---- */
+.footer-hours {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.hours-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hours-day {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #C8A27A;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+.hours-time {
+  font-size: 0.88rem;
+  color: #b8a090;
+  font-weight: 300;
+}
+
+.hours-divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(200, 162, 122, 0.15);
+}
+
+.hours-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  color: #8BC34A;
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+.status-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: #8BC34A;
+  border-radius: 50%;
+  animation: statusPulse 2s ease infinite;
+  flex-shrink: 0;
+}
+
+/* ---- Social Links ---- */
+.footer-socials {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-social {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: #b8a090;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+
+.footer-social:hover {
+  transform: translateX(6px);
+  color: #fff;
+}
+
+.footer-social.facebook:hover  { background: rgba(24, 119, 242, 0.2); border-color: rgba(24, 119, 242, 0.4); }
+.footer-social.instagram:hover { background: rgba(221, 42, 123, 0.2); border-color: rgba(221, 42, 123, 0.4); }
+.footer-social.twitter:hover   { background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.25); }
+.footer-social.whatsapp:hover  { background: rgba(37, 211, 102, 0.2); border-color: rgba(37, 211, 102, 0.4); }
+
+/* ---- Bottom Divider ---- */
+.footer-bottom-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(200, 162, 122, 0.3), transparent);
+  margin-bottom: 28px;
+}
+
+/* ---- Bottom Bar ---- */
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer-copyright {
+  font-size: 0.85rem;
+  color: #8a7060;
+  margin: 0;
+}
+
+.footer-brand-name {
+  color: #C8A27A;
+  font-weight: 600;
+}
+
+.footer-made-with {
+  font-size: 0.82rem;
+  color: #6b5444;
+  margin: 0;
+}
+
+.heart {
+  color: #e74c3c;
+  display: inline-block;
+  animation: statusPulse 1.5s ease infinite;
+}
+
+/* =========================================
+   Responsive
+   ========================================= */
+
+/* Medium screens */
+@media (max-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+}
+
+/* Tablet */
+@media (max-width: 720px) {
+  .footer-container {
+    padding: 52px 20px 32px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-logo-text {
+    font-size: 1.15rem;
+  }
+}
