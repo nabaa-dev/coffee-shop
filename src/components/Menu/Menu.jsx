@@ -96,7 +96,7 @@ const StarRating = ({ rating }) => {
   );
 };
 
-const MenuCard = ({ item }) => {
+const MenuCard = ({ item, onOrderClick }) => {
   return (
     <article className="menu-card" id={`menu-card-${item.id}`}>
       <div className="menu-card-image-wrapper">
@@ -119,7 +119,11 @@ const MenuCard = ({ item }) => {
 
         <p className="menu-card-description">{item.description}</p>
 
-        <button className="menu-card-btn" id={`order-btn-${item.id}`}>
+        <button 
+          className="menu-card-btn" 
+          id={`order-btn-${item.id}`}
+          onClick={() => onOrderClick ? onOrderClick(item.name) : alert(`تمت إضافة ${item.name} إلى طلبك!`)}
+        >
           <span className="menu-card-btn-icon">☕</span>
           Order Now
         </button>
@@ -128,7 +132,7 @@ const MenuCard = ({ item }) => {
   );
 };
 
-const Menu = () => {
+const Menu = ({ onOrderClick }) => {
   const [activeCategory, setActiveCategory] = useState('All');
 
   const filteredItems =
@@ -167,7 +171,7 @@ const Menu = () => {
       {/* ── Product Cards Grid ── */}
       <div className="menu-grid">
         {filteredItems.map((item) => (
-          <MenuCard key={item.id} item={item} />
+          <MenuCard key={item.id} item={item} onOrderClick={onOrderClick} />
         ))}
       </div>
 

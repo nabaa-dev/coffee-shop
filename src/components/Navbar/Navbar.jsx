@@ -16,8 +16,10 @@ import './Navbar.css';
 const DEFAULT_LINKS = [
   { id: 'home', label: 'الرئيسية', href: '#home' },
   { id: 'menu', label: 'قائمة القهوة', href: '#menu' },
-  { id: 'offers', label: 'العروض المميزة', href: '#offers' },
-  { id: 'about', label: 'من نحن', href: '#about' },
+  { id: 'featured', label: 'الأكثر طلباً', href: '#featured' },
+  { id: 'beans', label: 'حبوب القهوة', href: '#beans' },
+  { id: 'about', label: 'قصتنا', href: '#about' },
+  { id: 'testimonials', label: 'آراء العملاء', href: '#testimonials' },
   { id: 'contact', label: 'تواصل معنا', href: '#contact' },
 ];
 

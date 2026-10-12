@@ -1,9 +1,15 @@
 /* Global Styles & Font Setup for Coffee Shop */
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&family=Outfit:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-  --bg-main: #FAF7F2;
-  --text-dark: #1F130E;
+  --bg-main: #0b0705;
+  --bg-card: rgba(22, 14, 10, 0.75);
+  --color-gold: #e6b962;
+  --color-gold-light: #fff2da;
+  --color-gold-dark: #c48b3c;
+  --color-amber: #d4a373;
+  --text-primary: #fbf7f0;
+  --text-secondary: #c9b6a6;
   --font-family: 'Cairo', 'Outfit', system-ui, -apple-system, sans-serif;
 }
 
@@ -13,16 +19,45 @@
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html, body {
   width: 100%;
   min-height: 100vh;
   background-color: var(--bg-main);
-  color: var(--text-dark);
+  color: var(--text-primary);
   font-family: var(--font-family);
   direction: rtl;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0d0806;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #332014;
+  border-radius: 6px;
+  border: 2px solid #0d0806;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #e6b962;
+}
+
+/* Text Selection */
+::selection {
+  background: rgba(230, 185, 98, 0.35);
+  color: #ffffff;
 }
 
 #root {

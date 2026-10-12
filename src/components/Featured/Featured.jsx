@@ -68,7 +68,7 @@ const StarRating = ({ rating }) => (
   </div>
 );
 
-const FeaturedCard = ({ item, index }) => (
+const FeaturedCard = ({ item, index, onOrderClick }) => (
   <article
     className="featured-card"
     id={`featured-card-${item.id}`}
@@ -89,7 +89,11 @@ const FeaturedCard = ({ item, index }) => (
       <h3 className="featured-card-name">{item.name}</h3>
       <StarRating rating={item.rating} />
       <p className="featured-card-description">{item.description}</p>
-      <button className="featured-card-btn" id={`featured-order-btn-${item.id}`}>
+      <button 
+        className="featured-card-btn" 
+        id={`featured-order-btn-${item.id}`}
+        onClick={() => onOrderClick ? onOrderClick(item.name) : alert(`تمت إضافة ${item.name} إلى سلتك!`)}
+      >
         <span className="featured-card-btn-icon">☕</span>
         <span>Order Now</span>
       </button>
@@ -97,7 +101,7 @@ const FeaturedCard = ({ item, index }) => (
   </article>
 );
 
-const Featured = () => {
+const Featured = ({ onOrderClick }) => {
   return (
     <section className="featured-section" id="featured">
       {/* ── Decorative top divider ── */}
@@ -120,7 +124,7 @@ const Featured = () => {
       {/* ── Cards Grid ── */}
       <div className="featured-grid">
         {featuredItems.map((item, index) => (
-          <FeaturedCard key={item.id} item={item} index={index} />
+          <FeaturedCard key={item.id} item={item} index={index} onOrderClick={onOrderClick} />
         ))}
       </div>
 
