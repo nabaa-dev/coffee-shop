@@ -3,20 +3,13 @@ import './About.css';
 import aboutImage from '../../assets/about-coffee-shop.png';
 
 /**
- * About Component - Corporate Grade Section
- * Features:
- * - Section ID: "about" for smooth navbar navigation
- * - Main Title: "More Than Coffee, It's an Experience"
- * - Story Narrative
- * - 3 Feature Cards: Premium Coffee, Expert Baristas, Cozy Atmosphere
- * - Fully Responsive Layout (Flexbox & Grid)
+ * About Component - Corporate Grade Section (Arabic Luxury Edition)
  */
 export const About = () => {
   const features = [
     {
       id: 'premium-coffee',
-      title: 'Premium Coffee',
-      titleAr: 'قهوة مختصة فاخرة',
+      title: 'قهوة مختصة فاخرة',
       description: 'نستورد أجود حبوب البن المحمصة بعناية من أعرق المزارع العالمية لتقديم نكهة غنية لا تُنسى.',
       icon: (
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -30,8 +23,7 @@ export const About = () => {
     },
     {
       id: 'expert-baristas',
-      title: 'Expert Baristas',
-      titleAr: 'خبراء الباريستا',
+      title: 'خبراء الباريستا المحترفون',
       description: 'نمتلك فريقاً حائزاً على جوائز احترافية يصب شغفه ودقته في صنع كل رشفة بمهارة استثنائية.',
       icon: (
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -42,8 +34,7 @@ export const About = () => {
     },
     {
       id: 'cozy-atmosphere',
-      title: 'Cozy Atmosphere',
-      titleAr: 'أجواء دافئة ومريحة',
+      title: 'أجواء دافئة ومريحة',
       description: 'تصميم داخلي راقٍ بإضاءة دافئة توفر لك البيئة المثالية للتركيز والعمل أو لقاء الأصدقاء.',
       icon: (
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -70,7 +61,7 @@ export const About = () => {
             <div className="about-image-card">
               <img 
                 src={aboutImage} 
-                alt="Cozy Modern Coffee Shop Interior" 
+                alt="أجواء مقهى روستري كافيه الفاخرة" 
                 className="about-img"
               />
               <div className="about-experience-badge">
@@ -83,8 +74,8 @@ export const About = () => {
           {/* Text Story Side */}
           <div className="about-text-content">
             <h2 className="about-main-title">
-              More Than Coffee, <br />
-              <span className="highlight-gold">It's an Experience</span>
+              أكثر من مجرد قهوة، <br />
+              <span className="highlight-gold">إنها تجربة استثنائية متكاملة</span>
             </h2>
 
             <p className="about-paragraph">
@@ -99,7 +90,6 @@ export const About = () => {
                   <div className="card-content-box">
                     <h3 className="card-title">
                       {card.title}
-                      <span className="card-subtitle-ar">({card.titleAr})</span>
                     </h3>
                     <p className="card-description">{card.description}</p>
                   </div>

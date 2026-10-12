@@ -68,15 +68,15 @@ export const HeroScene3D = ({ onStateChange }) => {
     const isMobile = width < 860;
     sceneState.current.isMobile = isMobile;
 
-    // Adapt cup center position: centered on mobile, right-offset on desktop to leave room for text
-    const cupCenterX = isMobile ? 0 : 0.75;
-    sceneState.current.cupCenter.set(cupCenterX, isMobile ? -0.55 : -0.35, 0);
+    // Adapt cup center position: centered on mobile, right-offset on desktop to leave room for text on the left
+    const cupCenterX = isMobile ? 0 : 1.35;
+    sceneState.current.cupCenter.set(cupCenterX, isMobile ? -0.55 : -0.32, 0);
 
     // 1. Scene & Camera
     const scene = new THREE.Scene();
     sceneState.current.scene = scene;
 
-    const camera = new THREE.PerspectiveCamera(isMobile ? 48 : 38, width / height, 0.1, 100);
+    const camera = new THREE.PerspectiveCamera(isMobile ? 48 : 36, width / height, 0.1, 100);
     camera.position.set(0, isMobile ? 1.8 : 1.9, isMobile ? 6.2 : 5.0);
     sceneState.current.camera = camera;
 
@@ -695,12 +695,12 @@ export const HeroScene3D = ({ onStateChange }) => {
       const newIsMobile = newW < 860;
       sceneState.current.isMobile = newIsMobile;
 
-      const newCupX = newIsMobile ? 0 : 0.75;
-      sceneState.current.cupCenter.set(newCupX, newIsMobile ? -0.55 : -0.35, 0);
+      const newCupX = newIsMobile ? 0 : 1.35;
+      sceneState.current.cupCenter.set(newCupX, newIsMobile ? -0.55 : -0.32, 0);
       if (cupGroup) cupGroup.position.copy(sceneState.current.cupCenter);
 
       camera.aspect = newW / newH;
-      camera.fov = newIsMobile ? 48 : 38;
+      camera.fov = newIsMobile ? 48 : 36;
       camera.updateProjectionMatrix();
       renderer.setSize(newW, newH);
     };

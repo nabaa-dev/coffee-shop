@@ -1,5 +1,9 @@
 /* ==========================================================================
    Hero Section - Full-Screen Dominating 3D Cinematic Experience
+   Explicit Spatial Layout:
+   Desktop:
+   - Text, Title, Description, Buttons: Left side of screen (justify-content: flex-start with direction: ltr wrapper, text rtl).
+   - 3D Kettle & Cup: Right side of screen (X-offset +1.35 in Three.js).
    ========================================================================== */
 
 .hero-cinematic-section {
@@ -11,7 +15,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #0b0705;
+  background-color: #080503;
   color: #fbf7f0;
   overflow: hidden;
   box-sizing: border-box;
@@ -33,25 +37,29 @@
   position: absolute;
   inset: 0;
   background: 
-    radial-gradient(circle at 75% 50%, transparent 20%, rgba(11, 7, 5, 0.45) 70%, rgba(8, 5, 3, 0.85) 100%),
-    linear-gradient(90deg, rgba(11, 7, 5, 0.92) 0%, rgba(14, 9, 6, 0.65) 45%, transparent 75%);
+    radial-gradient(circle at 75% 50%, transparent 25%, rgba(8, 5, 3, 0.45) 70%, rgba(6, 4, 2, 0.88) 100%),
+    linear-gradient(90deg, rgba(8, 5, 3, 0.94) 0%, rgba(12, 8, 5, 0.78) 42%, rgba(12, 8, 5, 0.25) 75%, transparent 100%);
   pointer-events: none;
   z-index: 2;
 }
 
-/* 3. Luxury Typography & Content Container */
+/* 3. Luxury Typography & Content Container 
+   We explicitly set direction: ltr on the container and justify-content: flex-start
+   so that the content column is pinned to the physical LEFT of the screen regardless of html dir="rtl".
+*/
 .hero-cinematic-container {
   position: relative;
   width: 100%;
-  max-width: 1360px;
+  max-width: 1400px;
   height: 100%;
   margin: 0 auto;
-  padding: 0 2.5rem;
+  padding: 0 3.5rem;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: flex-start; /* Forces content to the LEFT */
+  direction: ltr; /* Keeps flex layout left-anchored */
   z-index: 3;
-  pointer-events: none; /* Allows mouse parallax to reach canvas */
+  pointer-events: none; /* Allows mouse interaction to pass to 3D canvas */
   box-sizing: border-box;
 }
 
@@ -60,9 +68,9 @@
   flex-direction: column;
   align-items: flex-start;
   text-align: right;
-  direction: rtl;
+  direction: rtl; /* Arabic text flows naturally RTL */
   gap: 1.5rem;
-  max-width: 580px;
+  max-width: 600px;
   pointer-events: auto; /* Re-enable pointer events for buttons & text */
 }
 
@@ -71,16 +79,17 @@
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  padding: 0.45rem 1.25rem;
-  background: rgba(230, 185, 98, 0.1);
-  border: 1px solid rgba(230, 185, 98, 0.35);
+  padding: 0.5rem 1.4rem;
+  background: rgba(230, 185, 98, 0.12);
+  border: 1px solid rgba(230, 185, 98, 0.38);
   border-radius: 30px;
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   color: #e6b962;
   font-size: 0.92rem;
-  font-weight: 600;
-  letter-spacing: 0.5px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 .eyebrow-sparkle {
@@ -89,22 +98,22 @@
 }
 
 @keyframes pulseSparkle {
-  0%, 100% { opacity: 0.4; transform: scale(0.9); }
+  0%, 100% { opacity: 0.5; transform: scale(0.9); }
   50% { opacity: 1; transform: scale(1.2); }
 }
 
 /* Main Cinematic Heading */
 .hero-cinematic-title {
-  font-family: 'Outfit', 'Cairo', sans-serif;
-  font-size: 4.5rem;
+  font-family: 'Cairo', 'Outfit', sans-serif;
+  font-size: clamp(2.8rem, 5.2vw, 4.6rem);
   font-weight: 900;
-  line-height: 1.1;
-  letter-spacing: -1.5px;
+  line-height: 1.18;
+  letter-spacing: -0.5px;
   color: #ffffff;
   margin: 0;
-  text-shadow: 0 6px 30px rgba(0, 0, 0, 0.7);
-  direction: ltr; /* English reads naturally LTR */
-  text-align: left;
+  text-shadow: 0 6px 30px rgba(0, 0, 0, 0.8);
+  direction: rtl;
+  text-align: right;
   width: 100%;
 }
 
@@ -114,21 +123,20 @@
   background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
-  font-style: italic;
-  font-weight: 700;
+  font-weight: 900;
 }
 
 /* Subtitle */
 .hero-cinematic-subtitle {
-  font-size: 1.35rem;
-  line-height: 1.8;
+  font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+  line-height: 1.85;
   color: #d8c7b8;
-  max-width: 520px;
+  max-width: 540px;
   margin: 0;
   font-weight: 500;
   direction: rtl;
   text-align: right;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
 }
 
 /* Action Buttons */
@@ -139,6 +147,7 @@
   width: 100%;
   margin-top: 0.5rem;
   flex-wrap: wrap;
+  direction: rtl;
 }
 
 .btn-cinematic-primary {
@@ -147,14 +156,14 @@
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
-  padding: 1.1rem 2.5rem;
+  padding: 1.1rem 2.4rem;
   background: linear-gradient(135deg, #e6b962 0%, #c48b3c 100%);
-  color: #100a07;
+  color: #0b0705;
   font-size: 1.1rem;
-  font-weight: 700;
+  font-weight: 800;
   border-radius: 14px;
   text-decoration: none;
-  box-shadow: 0 10px 35px rgba(230, 185, 98, 0.4);
+  box-shadow: 0 10px 35px rgba(230, 185, 98, 0.42);
   transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.35);
@@ -163,8 +172,8 @@
 
 .btn-cinematic-primary:hover {
   transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 16px 45px rgba(230, 185, 98, 0.55);
-  color: #0b0705;
+  box-shadow: 0 16px 45px rgba(230, 185, 98, 0.58);
+  color: #050302;
 }
 
 .btn-cinematic-primary:active {
@@ -192,13 +201,13 @@
   justify-content: center;
   gap: 0.75rem;
   padding: 1.1rem 2.2rem;
-  background: rgba(22, 14, 10, 0.65);
+  background: rgba(22, 14, 10, 0.75);
   color: #fbf7f0;
   font-size: 1.1rem;
-  font-weight: 600;
+  font-weight: 700;
   border-radius: 14px;
   text-decoration: none;
-  border: 1px solid rgba(230, 185, 98, 0.4);
+  border: 1px solid rgba(230, 185, 98, 0.45);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   transition: all 0.3s ease;
@@ -206,19 +215,20 @@
 }
 
 .btn-cinematic-secondary:hover {
-  background: rgba(230, 185, 98, 0.2);
+  background: rgba(230, 185, 98, 0.22);
   border-color: #e6b962;
   color: #ffffff;
   transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
 }
 
 .btn-arrow {
+  display: inline-block;
   transition: transform 0.3s ease;
 }
 
 .btn-cinematic-secondary:hover .btn-arrow {
-  transform: translateX(-5px);
+  transform: translateX(-6px);
 }
 
 /* Specs Pill Bar */
@@ -227,8 +237,8 @@
   align-items: center;
   gap: 1.4rem;
   padding: 0.9rem 1.6rem;
-  background: rgba(18, 11, 8, 0.75);
-  border: 1px solid rgba(230, 185, 98, 0.2);
+  background: rgba(18, 11, 8, 0.8);
+  border: 1px solid rgba(230, 185, 98, 0.25);
   border-radius: 18px;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -244,116 +254,25 @@
 }
 
 .spec-value {
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Cairo', sans-serif;
   font-size: 1.15rem;
-  font-weight: 700;
+  font-weight: 800;
   color: #e6b962;
 }
 
 .spec-label {
   font-size: 0.82rem;
-  color: #ad9a8b;
-  font-weight: 500;
+  color: #c0b0a2;
+  font-weight: 600;
 }
 
 .spec-divider {
   width: 1px;
   height: 36px;
-  background: linear-gradient(180deg, transparent, rgba(230, 185, 98, 0.25), transparent);
+  background: linear-gradient(180deg, transparent, rgba(230, 185, 98, 0.3), transparent);
 }
 
-/* 4. Floating 3D Interaction Control HUD */
-.hero-3d-controls-hud {
-  position: absolute;
-  bottom: 2.2rem;
-  right: 2.5rem;
-  display: flex;
-  align-items: center;
-  gap: 1.2rem;
-  z-index: 10;
-  pointer-events: auto;
-}
-
-.hero-replay-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.65rem;
-  padding: 0.75rem 1.6rem;
-  background: rgba(18, 11, 7, 0.9);
-  border: 1px solid rgba(230, 185, 98, 0.5);
-  color: #e6b962;
-  border-radius: 30px;
-  font-size: 0.95rem;
-  font-weight: 700;
-  cursor: pointer;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6), 0 0 15px rgba(230, 185, 98, 0.15);
-  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
-  outline: none;
-}
-
-.hero-replay-btn:hover {
-  background: rgba(230, 185, 98, 0.25);
-  border-color: #e6b962;
-  color: #ffffff;
-  transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(230, 185, 98, 0.35);
-}
-
-.hero-replay-btn.is-active {
-  border-color: #ff9d3b;
-  color: #ff9d3b;
-}
-
-.replay-icon {
-  font-size: 1.25rem;
-  transition: transform 0.4s ease;
-}
-
-.hero-replay-btn:hover .replay-icon {
-  transform: rotate(-180deg);
-}
-
-.hero-status-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  padding: 0.7rem 1.35rem;
-  background: rgba(14, 9, 6, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 30px;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  color: #d8c7b8;
-  font-size: 0.88rem;
-  font-weight: 500;
-}
-
-.status-dot {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: #ad9a8b;
-}
-
-.status-dot.pouring {
-  background: #ff9d3b;
-  box-shadow: 0 0 12px #ff9d3b;
-  animation: pulseDot 1s infinite ease-in-out;
-}
-
-.status-dot.ready {
-  background: #4ade80;
-  box-shadow: 0 0 12px #4ade80;
-}
-
-@keyframes pulseDot {
-  0%, 100% { opacity: 0.4; transform: scale(0.85); }
-  50% { opacity: 1; transform: scale(1.3); }
-}
-
-/* 5. Bottom Scroll Transition */
+/* 4. Bottom Scroll Transition */
 .hero-bottom-transition {
   position: absolute;
   bottom: 2rem;
@@ -371,8 +290,8 @@
   align-items: center;
   gap: 0.6rem;
   color: rgba(216, 199, 184, 0.75);
-  font-size: 0.88rem;
-  font-weight: 500;
+  font-size: 0.9rem;
+  font-weight: 600;
   text-decoration: none;
   animation: floatArrow 2.5s infinite ease-in-out;
   cursor: pointer;
@@ -396,11 +315,11 @@
    Responsive Layout (Laptops, Tablets, Mobile)
    -------------------------------------------------------------------------- */
 @media (max-width: 1024px) {
-  .hero-cinematic-title {
-    font-size: 3.6rem;
+  .hero-cinematic-container {
+    padding: 0 2rem;
   }
   .hero-content-column {
-    max-width: 480px;
+    max-width: 500px;
   }
 }
 
@@ -408,12 +327,12 @@
   .hero-cinematic-section {
     height: auto;
     min-height: 100vh;
-    padding-top: 5.5rem;
+    padding-top: 6.5rem;
     padding-bottom: 5.5rem;
   }
 
   .hero-cinematic-overlay {
-    background: radial-gradient(circle at 50% 65%, transparent 20%, rgba(11, 7, 5, 0.7) 65%, rgba(8, 5, 3, 0.95) 100%);
+    background: radial-gradient(circle at 50% 65%, transparent 20%, rgba(8, 5, 3, 0.75) 65%, rgba(6, 4, 2, 0.96) 100%);
   }
 
   .hero-cinematic-container {
@@ -429,7 +348,6 @@
 
   .hero-cinematic-title {
     text-align: center;
-    font-size: 2.8rem;
   }
 
   .hero-cinematic-subtitle {
@@ -441,20 +359,6 @@
   }
 
   .hero-spec-strip {
-    justify-content: center;
-  }
-
-  .hero-3d-controls-hud {
-    bottom: 1.2rem;
-    right: 1.2rem;
-    left: 1.2rem;
-    flex-direction: column-reverse;
-    gap: 0.6rem;
-  }
-
-  .hero-replay-btn,
-  .hero-status-pill {
-    width: 100%;
     justify-content: center;
   }
 
@@ -464,11 +368,12 @@
 }
 
 @media (max-width: 480px) {
-  .hero-cinematic-title {
-    font-size: 2.2rem;
+  .hero-cinematic-section {
+    padding-top: 5rem;
+    padding-bottom: 4rem;
   }
-  .hero-cinematic-subtitle {
-    font-size: 1.05rem;
+  .hero-cinematic-container {
+    padding: 0 1rem;
   }
   .hero-action-buttons {
     flex-direction: column;
@@ -477,11 +382,14 @@
   .btn-cinematic-primary,
   .btn-cinematic-secondary {
     width: 100%;
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
   }
   .hero-spec-strip {
     flex-direction: column;
     gap: 0.6rem;
     text-align: center;
+    padding: 1rem;
   }
   .spec-divider {
     display: none;

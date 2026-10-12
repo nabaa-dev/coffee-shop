@@ -2,56 +2,55 @@ import React from 'react';
 import './Featured.css';
 
 /**
- * Featured Component
+ * Featured Component (Arabic Luxury Edition)
  * Displays the most popular coffee items in an animated card grid.
- * Uses CSS-only scroll animations, no external libraries.
  */
 
 const featuredItems = [
   {
     id: 1,
-    name: 'Signature Espresso',
-    description: 'Our house blend — bold, rich, and perfectly balanced with notes of dark chocolate and caramel.',
+    name: 'إسبريسو روستري الخاص',
+    description: 'مزيجنا المميز — قوي، غني، ومتوازن بنفحات الشوكولاتة الداكنة والكراميل الفاخر.',
     price: '3.80',
     rating: 5,
     image: 'https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?w=700&q=80',
   },
   {
     id: 2,
-    name: 'Velvet Cappuccino',
-    description: 'Silky micro-foamed milk over a double shot of espresso — pure comfort in every sip.',
+    name: 'كابتشينو مخملي',
+    description: 'حليب مبخر بقوام حريري ناعم ينساب فوق جرعة إسبريسو مزدوجة — دلال خالص في كل رشفة.',
     price: '4.50',
     rating: 5,
     image: 'https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=700&q=80',
   },
   {
     id: 3,
-    name: 'Golden Latte',
-    description: 'Warm turmeric-spiced latte with oat milk and a touch of honey — beautifully soothing.',
+    name: 'لاتيه ذهبي بالكركم والعسل',
+    description: 'لاتيه دافئ مع حليب الشوفان ولمسة عسل بري مع توابل طبيعية مهدئة للحواس.',
     price: '5.20',
     rating: 4,
     image: 'https://images.unsplash.com/photo-1561047029-3000c68339ca?w=700&q=80',
   },
   {
     id: 4,
-    name: 'Caramel Cloud',
-    description: 'Espresso crowned with airy salted caramel foam and a slow ribbon of caramel drizzle.',
+    name: 'كراميل كلاود الفاخر',
+    description: 'إسبريسو متوج برغوة الكراميل المملح الهوائية مع خيوط صوص الكراميل البلجيكي.',
     price: '5.80',
     rating: 5,
     image: 'https://images.unsplash.com/photo-1485808191679-5f86510bd9d4?w=700&q=80',
   },
   {
     id: 5,
-    name: 'Cold Brew Reserve',
-    description: 'Steeped for 18 hours, served over crystal ice — smooth, mellow, and deeply refreshing.',
+    name: 'كولد برو منقوع 18 ساعة',
+    description: 'قهوة باردة مستخلصة ببطء فوق الثلج الكريستالي — ناعمة، سلسة، وعميقة النكهة.',
     price: '5.50',
     rating: 5,
     image: 'https://images.unsplash.com/photo-1541167760496-1628856ab772?w=700&q=80',
   },
   {
     id: 6,
-    name: 'Mocha Supreme',
-    description: 'Double espresso fused with Belgian dark chocolate and crowned with fresh whipped cream.',
+    name: 'موكا سوبريم بالشوكولاتة',
+    description: 'إسبريسو مزدوج منسجم مع الشوكولاتة البلجيكية الغنية وكريمة الخفق الطازجة.',
     price: '5.90',
     rating: 5,
     image: 'https://images.unsplash.com/photo-1579992357154-faf4bde95b3d?w=700&q=80',
@@ -59,7 +58,7 @@ const featuredItems = [
 ];
 
 const StarRating = ({ rating }) => (
-  <div className="featured-card-stars" aria-label={`Rating: ${rating} out of 5`}>
+  <div className="featured-card-stars" aria-label={`التقييم: ${rating} من 5`}>
     {Array.from({ length: 5 }, (_, i) => (
       <span key={i} className={i < rating ? 'fstar fstar--filled' : 'fstar fstar--empty'}>
         ★
@@ -95,7 +94,7 @@ const FeaturedCard = ({ item, index, onOrderClick }) => (
         onClick={() => onOrderClick ? onOrderClick(item.name) : alert(`تمت إضافة ${item.name} إلى سلتك!`)}
       >
         <span className="featured-card-btn-icon">☕</span>
-        <span>Order Now</span>
+        <span>اطلب الآن</span>
       </button>
     </div>
   </article>
@@ -107,17 +106,16 @@ const Featured = ({ onOrderClick }) => {
       {/* ── Decorative top divider ── */}
       <div className="featured-divider" aria-hidden="true">
         <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0,30 C360,60 1080,0 1440,30 L1440,0 L0,0 Z" fill="#F5F5DC" />
+          <path d="M0,30 C360,60 1080,0 1440,30 L1440,0 L0,0 Z" fill="#070403" />
         </svg>
       </div>
 
       {/* ── Section Header ── */}
       <div className="featured-header">
         <span className="featured-eyebrow">✦ الأكثر طلبًا</span>
-        <h2 className="featured-title">Featured Coffee</h2>
+        <h2 className="featured-title">القهوة المميزة</h2>
         <p className="featured-subtitle">
-          Handpicked by our master baristas — these are the drinks our guests
-          fall in love with, time and again.
+          مختارة بعناية من قِبل كبار خبراء الباريستا — مشروبات استثنائية يعشقها ضيوفنا في كل زيارة.
         </p>
       </div>
 

@@ -2,7 +2,7 @@ import React from 'react';
 import './WhyChooseUs.css';
 
 /**
- * WhyChooseUs Component
+ * WhyChooseUs Component (Arabic Luxury Edition)
  * Showcases 6 brand advantages with icon cards,
  * fade-up animation, and smooth hover effects.
  */
@@ -11,37 +11,37 @@ const features = [
   {
     id: 1,
     icon: '☕',
-    title: 'Premium Coffee',
+    title: 'قهوة مختصة نقية',
     description: 'أجود أنواع البن المختار بعناية من أفضل مزارع العالم، محمص طازجًا ليمنحك نكهة لا مثيل لها.',
   },
   {
     id: 2,
     icon: '👨‍🍳',
-    title: 'Professional Baristas',
+    title: 'باريستا محترفون',
     description: 'يتم إعداد مشروباتك على يد خبراء بارستا متخصصين، يُحولون كل كوب إلى تجربة فنية فريدة.',
   },
   {
     id: 3,
     icon: '🥐',
-    title: 'Fresh Bakery',
+    title: 'مخبوزات طازجة يومياً',
     description: 'مخبوزات طازجة تُحضَّر يوميًا في مطبخنا باستخدام مكونات عالية الجودة لمرافقة قهوتك.',
   },
   {
     id: 4,
     icon: '🚚',
-    title: 'Fast Service',
+    title: 'خدمة سريعة ومتقنة',
     description: 'نحرص على تحضير طلبك بأسرع وقت ممكن دون التنازل أبدًا عن الجودة أو الدقة في التقديم.',
   },
   {
     id: 5,
     icon: '🌿',
-    title: 'Organic Ingredients',
+    title: 'مكونات عضوية طبيعية',
     description: 'نستخدم مكونات طبيعية وعضوية معتمدة لضمان صحتك وسلامتك في كل قطرة وكل لقمة.',
   },
   {
     id: 6,
     icon: '⭐',
-    title: 'Customer Satisfaction',
+    title: 'رضا العميل أولويتنا',
     description: 'رضا عملائنا هو أولويتنا القصوى — نستمع إليك دائمًا ونسعى لتجاوز توقعاتك في كل زيارة.',
   },
 ];
@@ -69,13 +69,13 @@ const WhyChooseUs = () => {
       {/* ── Decorative Wave Top ── */}
       <div className="why-wave-top" aria-hidden="true">
         <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0,0 C480,56 960,56 1440,0 L1440,56 L0,56 Z" fill="#fdfcf8" />
+          <path d="M0,0 C480,56 960,56 1440,0 L1440,56 L0,56 Z" fill="#0b0705" />
         </svg>
       </div>
 
       {/* ── Section Header ── */}
       <div className="why-header">
-        <span className="why-badge">✦ Why Choose Us</span>
+        <span className="why-badge">✦ مميزاتنا الاستثنائية</span>
         <h2 className="why-title">لماذا تختار روستري كافيه؟</h2>
         <p className="why-subtitle">
           نحن لا نقدم مجرد قهوة — نقدم تجربة متكاملة من الجودة والدفء والاهتمام بكل تفصيلة،

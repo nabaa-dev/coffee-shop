@@ -3,9 +3,11 @@ import HeroScene3D from './HeroScene3D';
 import './Hero.css';
 
 /**
- * Hero Component - Luxury World-Class 3D Cinematic Experience
- * Full-screen Three.js 3D stage dominating the viewport.
- * Zero static cup images. Live interactive kettle, liquid pouring, rising crema & steam.
+ * Hero Component - Luxury World-Class 3D Cinematic Experience (Arabic Master Edition)
+ * Distribution:
+ * - Desktop: Texts, Title, Subtitle, and Buttons strictly on the LEFT side.
+ * - 3D Scene: Kettle & Cup pouring sequence on the RIGHT side.
+ * - Mobile/Tablet: Graceful responsive vertical alignment without overflows.
  */
 export const Hero = ({ onOrderClick, onMenuClick }) => {
   const [sceneStatus, setSceneStatus] = useState({ state: 'entering', isPouring: false });
@@ -22,9 +24,9 @@ export const Hero = ({ onOrderClick, onMenuClick }) => {
 
   const handleShopNav = (e) => {
     e.preventDefault();
-    const featuredEl = document.getElementById('featured') || document.getElementById('beans');
-    if (featuredEl) {
-      featuredEl.scrollIntoView({ behavior: 'smooth' });
+    const targetEl = document.getElementById('beans') || document.getElementById('featured');
+    if (targetEl) {
+      targetEl.scrollIntoView({ behavior: 'smooth' });
     } else if (onOrderClick) {
       onOrderClick();
     }
@@ -40,29 +42,29 @@ export const Hero = ({ onOrderClick, onMenuClick }) => {
       {/* 2. Atmospheric vignette & dark gold cafe gradients */}
       <div className="hero-cinematic-overlay" aria-hidden="true" />
 
-      {/* 3. Luxury Typography & Interactive Action Panel */}
+      {/* 3. Luxury Typography & Interactive Action Panel (Left aligned on Desktop) */}
       <div className="hero-cinematic-container">
         <div className="hero-content-column">
           
           {/* Eyebrow Pill */}
           <div className="hero-luxury-eyebrow">
             <span className="eyebrow-sparkle">✦</span>
-            <span className="eyebrow-text">Specialty Reserve • التجربة السينمائية الفاخرة</span>
+            <span className="eyebrow-text">محصول فاخر • تجربة القهوة السينمائية الفاخرة</span>
             <span className="eyebrow-sparkle">✦</span>
           </div>
 
-          {/* Mandatory Main Heading */}
+          {/* Mandatory Main Heading: «كل فنجان يحكي حكاية» */}
           <h1 className="hero-cinematic-title">
-            Every Cup <br />
-            <span className="title-gradient-gold">Tells a Story</span>
+            كل فنجان <br />
+            <span className="title-gradient-gold">يحكي حكاية</span>
           </h1>
 
-          {/* Mandatory Subtitle */}
+          {/* Mandatory Subtitle: «اكتشف نكهة قهوتك المفضلة واستمتع بتجربة استثنائية في كل رشفة» */}
           <p className="hero-cinematic-subtitle">
-            اكتشف نكهة قهوتك المفضلة، واستمتع بتجربة قهوة استثنائية في كل رشفة.
+            اكتشف نكهة قهوتك المفضلة واستمتع بتجربة استثنائية في كل رشفة.
           </p>
 
-          {/* Mandatory Action Buttons */}
+          {/* Mandatory Action Buttons: «اكتشف قائمة القهوة» و«تسوّق الآن» */}
           <div className="hero-action-buttons">
             <a
               href="#menu"
@@ -76,7 +78,7 @@ export const Hero = ({ onOrderClick, onMenuClick }) => {
             </a>
 
             <a
-              href="#featured"
+              href="#beans"
               className="btn-cinematic-secondary"
               onClick={handleShopNav}
               id="hero-btn-shop-now"
@@ -99,8 +101,8 @@ export const Hero = ({ onOrderClick, onMenuClick }) => {
             </div>
             <div className="spec-divider" aria-hidden="true" />
             <div className="spec-card">
-              <span className="spec-value">Fresh Roast</span>
-              <span className="spec-label">تحميص طازج أسبوعياً</span>
+              <span className="spec-value">تحميص طازج</span>
+              <span className="spec-label">محمصة أسبوعياً بعناية</span>
             </div>
           </div>
 
@@ -111,7 +113,7 @@ export const Hero = ({ onOrderClick, onMenuClick }) => {
       <div className="hero-bottom-transition" aria-hidden="true">
         <a href="#menu" className="scroll-indicator" onClick={handleMenuNav}>
           <span className="scroll-arrow-icon">↓</span>
-          <span className="scroll-text">انتقل لاستكشاف القائمة والمنتجات</span>
+          <span className="scroll-text">انتقل لاستكشاف القائمة والمحاصيل</span>
         </a>
       </div>
     </section>

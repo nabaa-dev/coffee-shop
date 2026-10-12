@@ -140,14 +140,14 @@
 
 /* Main Title */
 .about-main-title {
-  font-family: 'Outfit', 'Cairo', sans-serif;
+  font-family: 'Cairo', 'Outfit', sans-serif;
   font-size: 2.7rem;
   font-weight: 800;
   color: #fff8f0;
-  line-height: 1.25;
+  line-height: 1.35;
   margin-bottom: 1.2rem;
-  direction: ltr;
-  text-align: left;
+  direction: rtl;
+  text-align: right;
 }
 
 .about-main-title .highlight-gold {
