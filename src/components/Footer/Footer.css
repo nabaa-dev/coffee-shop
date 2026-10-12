@@ -1,11 +1,7 @@
 /* =========================================
-   Footer — CSS
-   Palette: #6F4E37  #C8A27A  #F5F5DC  White
+   Footer — Dark Luxury Gold Theme
    ========================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap');
-
-/* Fade-up animation */
 @keyframes footerFadeUp {
   from {
     opacity: 0;
@@ -24,9 +20,11 @@
 
 /* ---- Footer Wrapper ---- */
 .footer {
-  background: #2b1608;
+  background: #060403;
   position: relative;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Outfit', 'Cairo', sans-serif;
+  border-top: 1px solid rgba(230, 185, 98, 0.15);
+  color: #fbf7f0;
 }
 
 /* ---- Top Decorative Wave ---- */
@@ -75,34 +73,37 @@
 
 .footer-logo-icon {
   font-size: 1.7rem;
-  filter: drop-shadow(0 2px 6px rgba(200, 162, 122, 0.5));
+  filter: drop-shadow(0 2px 8px rgba(230, 185, 98, 0.6));
 }
 
 .footer-logo-text {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.35rem;
-  font-weight: 700;
-  color: #C8A27A;
+  font-family: 'Outfit', 'Cairo', sans-serif;
+  font-size: 1.45rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #fff5e4, #e6b962);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
   letter-spacing: 0.5px;
 }
 
 .footer-brand-desc {
-  font-size: 0.88rem;
-  color: #b8a090;
+  font-size: 0.92rem;
+  color: #a8988b;
   line-height: 1.75;
   margin: 0 0 20px;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .footer-brand-badge {
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  background: rgba(200, 162, 122, 0.12);
-  border: 1px solid rgba(200, 162, 122, 0.25);
-  color: #C8A27A;
+  background: rgba(230, 185, 98, 0.1);
+  border: 1px solid rgba(230, 185, 98, 0.3);
+  color: #e6b962;
   font-size: 0.8rem;
-  font-weight: 500;
+  font-weight: 600;
   padding: 6px 14px;
   border-radius: 50px;
   letter-spacing: 0.5px;
@@ -111,10 +112,10 @@
 
 /* ---- Column Title ---- */
 .footer-col-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.05rem;
+  font-family: 'Outfit', 'Cairo', sans-serif;
+  font-size: 1.15rem;
   font-weight: 700;
-  color: #F5F5DC;
+  color: #fbf7f0;
   margin: 0 0 22px;
   display: flex;
   align-items: center;
@@ -126,7 +127,7 @@
   display: inline-block;
   width: 28px;
   height: 3px;
-  background: linear-gradient(90deg, #6F4E37, #C8A27A);
+  background: linear-gradient(90deg, #e6b962, #c48b3c);
   border-radius: 3px;
   flex-shrink: 0;
 }
@@ -148,9 +149,9 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  color: #b8a090;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.9rem;
+  color: #a8988b;
+  font-family: 'Outfit', 'Cairo', sans-serif;
+  font-size: 0.92rem;
   font-weight: 400;
   cursor: pointer;
   text-align: left;
@@ -159,19 +160,19 @@
 }
 
 .footer-link-btn:hover {
-  color: #C8A27A;
+  color: #e6b962;
   gap: 13px;
 }
 
 .link-arrow {
   font-size: 1.1rem;
-  color: #6F4E37;
+  color: #e6b962;
   transition: color 0.25s ease;
   line-height: 1;
 }
 
 .footer-link-btn:hover .link-arrow {
-  color: #C8A27A;
+  color: #fff;
 }
 
 /* ---- Working Hours ---- */
@@ -190,30 +191,30 @@
 .hours-day {
   font-size: 0.82rem;
   font-weight: 600;
-  color: #C8A27A;
+  color: #e6b962;
   letter-spacing: 0.3px;
   text-transform: uppercase;
 }
 
 .hours-time {
-  font-size: 0.88rem;
-  color: #b8a090;
-  font-weight: 300;
+  font-size: 0.9rem;
+  color: #a8988b;
+  font-weight: 400;
 }
 
 .hours-divider {
   width: 100%;
   height: 1px;
-  background: rgba(200, 162, 122, 0.15);
+  background: rgba(230, 185, 98, 0.12);
 }
 
 .hours-status {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 0.8rem;
-  color: #8BC34A;
-  font-weight: 500;
+  font-size: 0.85rem;
+  color: #4ade80;
+  font-weight: 600;
   margin-top: 4px;
 }
 
@@ -221,8 +222,9 @@
   display: inline-block;
   width: 8px;
   height: 8px;
-  background: #8BC34A;
+  background: #4ade80;
   border-radius: 50%;
+  box-shadow: 0 0 8px #4ade80;
   animation: statusPulse 2s ease infinite;
   flex-shrink: 0;
 }
@@ -243,9 +245,9 @@
   text-decoration: none;
   font-size: 0.88rem;
   font-weight: 500;
-  color: #b8a090;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  color: #a8988b;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(230, 185, 98, 0.12);
   transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
 }
 
@@ -263,7 +265,7 @@
 .footer-bottom-divider {
   width: 100%;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(200, 162, 122, 0.3), transparent);
+  background: linear-gradient(90deg, transparent, rgba(230, 185, 98, 0.25), transparent);
   margin-bottom: 28px;
 }
 
@@ -277,33 +279,29 @@
 }
 
 .footer-copyright {
-  font-size: 0.85rem;
-  color: #8a7060;
+  font-size: 0.88rem;
+  color: #7d6b5e;
   margin: 0;
 }
 
 .footer-brand-name {
-  color: #C8A27A;
+  color: #e6b962;
   font-weight: 600;
 }
 
 .footer-made-with {
-  font-size: 0.82rem;
-  color: #6b5444;
+  font-size: 0.85rem;
+  color: #7d6b5e;
   margin: 0;
 }
 
 .heart {
-  color: #e74c3c;
+  color: #ef4444;
   display: inline-block;
   animation: statusPulse 1.5s ease infinite;
 }
 
-/* =========================================
-   Responsive
-   ========================================= */
-
-/* Medium screens */
+/* Responsive */
 @media (max-width: 1024px) {
   .footer-grid {
     grid-template-columns: 1fr 1fr;
@@ -311,32 +309,27 @@
   }
 }
 
-/* Tablet */
 @media (max-width: 720px) {
   .footer-container {
     padding: 52px 20px 32px;
   }
-
   .footer-grid {
     grid-template-columns: 1fr 1fr;
     gap: 32px;
   }
 }
 
-/* Mobile */
 @media (max-width: 480px) {
   .footer-grid {
     grid-template-columns: 1fr;
     gap: 36px;
   }
-
   .footer-bottom {
     flex-direction: column;
     align-items: center;
     text-align: center;
   }
-
   .footer-logo-text {
-    font-size: 1.15rem;
+    font-size: 1.25rem;
   }
 }
